@@ -1,0 +1,8 @@
+name: TestPlugin
+main: de.cubeside.testplugin.TestPlugin
+version: 0.1.0
+authors:
+  - Brokkonaut
+# depend: [TestPlugin2]
+# softdepend: [OneMoreTestPlugin, AnotherCoolTest]
+
