@@ -3,6 +3,7 @@ package de.cubeside.testplugin;
 import de.cubeside.globalserver.event.Event;
 import de.cubeside.globalserver.event.EventHandler;
 import de.cubeside.globalserver.event.Listener;
+import de.cubeside.globalserver.event.Priority;
 import de.cubeside.globalserver.plugin.Plugin;
 
 public class TestPlugin extends Plugin {
@@ -20,12 +21,12 @@ public class TestPlugin extends Plugin {
     }
 
     private class TestListener implements Listener {
-        @EventHandler(priority = -1000)
+        @EventHandler(priority = Priority.EARLY)
         public void onEarlyTest(TestEvent event) {
             getLogger().info("onEarlyTest: " + event.getValue());
         }
 
-        @EventHandler(priority = 1000)
+        @EventHandler(priority = Priority.LATE)
         public void onLateTest(TestEvent event) {
             getLogger().info("onLateTest: " + event.getValue());
         }
