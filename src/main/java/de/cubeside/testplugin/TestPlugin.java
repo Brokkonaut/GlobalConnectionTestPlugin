@@ -4,6 +4,7 @@ import de.cubeside.globalserver.event.Event;
 import de.cubeside.globalserver.event.EventHandler;
 import de.cubeside.globalserver.event.Listener;
 import de.cubeside.globalserver.event.Priority;
+import de.cubeside.globalserver.event.globalserver.GlobalServerStartedEvent;
 import de.cubeside.globalserver.plugin.Plugin;
 
 public class TestPlugin extends Plugin {
@@ -21,6 +22,11 @@ public class TestPlugin extends Plugin {
     }
 
     private class TestListener implements Listener {
+        @EventHandler
+        public void onGlobalServerStarted(GlobalServerStartedEvent event) {
+            getLogger().info("GlobalServerStarted");
+        }
+
         @EventHandler(priority = Priority.EARLY)
         public void onEarlyTest(TestEvent event) {
             getLogger().info("onEarlyTest: " + event.getValue());
