@@ -27,6 +27,11 @@ public class TestPlugin extends Plugin {
             getLogger().info("GlobalServerStarted");
         }
 
+        // @EventHandler
+        // public void onDataForward(DataForwardEvent event) {
+        // getLogger().info("DataForward from " + event.getClientConnection().getAccount() + " in Channel " + event.getChannel() + ": " + event.getData().length + " bytes");
+        // }
+
         @EventHandler(priority = Priority.EARLY)
         public void onEarlyTest(TestEvent event) {
             getLogger().info("onEarlyTest: " + event.getValue());
