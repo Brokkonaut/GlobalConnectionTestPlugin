@@ -4,6 +4,7 @@ import de.cubeside.globalserver.event.Event;
 import de.cubeside.globalserver.event.EventHandler;
 import de.cubeside.globalserver.event.Listener;
 import de.cubeside.globalserver.event.Priority;
+import de.cubeside.globalserver.event.data.DataForwardEvent;
 import de.cubeside.globalserver.event.globalserver.GlobalServerStartedEvent;
 import de.cubeside.globalserver.plugin.Plugin;
 
@@ -27,10 +28,11 @@ public class TestPlugin extends Plugin {
             getLogger().info("GlobalServerStarted");
         }
 
-        // @EventHandler
-        // public void onDataForward(DataForwardEvent event) {
-        // getLogger().info("DataForward from " + event.getClientConnection().getAccount() + " in Channel " + event.getChannel() + ": " + event.getData().length + " bytes");
-        // }
+        @EventHandler
+        public void onDataForward(DataForwardEvent event) {
+            // event.getClientConnection().hasPermission("")
+            // getLogger().info("DataForward from " + event.getClientConnection().getAccount() + " in Channel " + event.getChannel() + ": " + event.getData().length + " bytes");
+        }
 
         @EventHandler(priority = Priority.EARLY)
         public void onEarlyTest(TestEvent event) {
